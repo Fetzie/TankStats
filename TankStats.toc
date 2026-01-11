@@ -1,0 +1,8 @@
+## Interface: 120000
+## Title: TankStats
+## Author: You
+## Version: 1.0
+## Notes: Displays avoidance, block and crit chance
+## SavedVariables: TankStatsDB
+
+TankStats.lua
