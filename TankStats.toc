@@ -4,5 +4,7 @@
 ## Version: 1.0
 ## Notes: Displays avoidance, block and crit chance
 ## SavedVariables: TankStatsDB
+## Category-enUS: Paladin
+## Category-deDE: Paladin
 
 TankStats.lua
