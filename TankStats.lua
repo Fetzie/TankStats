@@ -112,16 +112,8 @@ local function UpdateStats()
     local greenColor = "|cFF00FF00"  -- green (hex: 00FF00)
     local defaultColor = "|cFFFFFFFF"  -- white (default)
     
-    local blockStr
-    local spellBlockStr
-    if baseBlockChance >= 100 then
-        blockStr = string.format("%s%6.2f%%|r", greenColor, baseBlockChance)
-	spellBlockStr = string.format("%s%6.2f%%|r", greenColor, spellBlockChance)
-    else
-        blockStr = string.format("%s%6.2f%%|r", defaultColor, baseBlockChance)
-	spellBlockStr = string.format("%s%6.2f%%|r", defaultColor, spellBlockChance)
-    end
-    
+    local blockStr = string.format("%s%6.2f%%|r", defaultColor, baseBlockChance)
+    local spellBlockStr = string.format("%s%6.2f%%|r", defaultColor, spellBlockChance)    
     local avoidStr = string.format("%s%6.2f%%|r", defaultColor, avoidChance)
     local critStr = string.format("%s%6.2f%%|r", defaultColor, critChance)
 
@@ -133,9 +125,9 @@ end
 -- Event handling
 frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 frame:RegisterEvent("PLAYER_LEAVING_WORLD")
-frame:RegisterEvent("UNIT_STATS")
-frame:RegisterEvent("COMBAT_RATING_UPDATE")
-frame:RegisterEvent("PLAYER_DAMAGE_DONE_MODS")
+frame:RegisterEvent("UNIT_STATS") -- strength gives parry
+frame:RegisterEvent("COMBAT_RATING_UPDATE") -- secondary stats change
+frame:RegisterEvent("PLAYER_DAMAGE_DONE_MODS") -- detect Avenging Wrath cast and fade, it adds 20% crit without adding combat rating
 
 frame:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_ENTERING_WORLD" then
